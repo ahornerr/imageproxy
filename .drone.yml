@@ -1,0 +1,11 @@
+build:
+  image: golang
+  commands:
+    - curl -sOL https://github.com/Masterminds/glide/releases/download/0.10.2/glide-0.10.2-linux-amd64.tar.gz
+    - tar -zxvf glide-0.10.2-linux-amd64.tar.gz
+    - mv linux-amd64/glide glide
+    - chmod +x glide
+    - ./glide install
+    - go build
+    - tar -cvzf imageproxy.tar.gz imageproxy
+    - curl -H  "X-JFrog-Art-Api:$$ARTIFACTORY_API"  -X PUT "http://artifactory.gannettdigital.com/artifactory/go-repository/imageproxy/imageproxy-$$BUILD_NUMBER.tar.gz;version=$$BUILD_NUMBER;applicationName=imageproxy" -T imageproxy.tar.gz
