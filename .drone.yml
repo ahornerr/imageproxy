@@ -9,4 +9,4 @@ build:
     - cd cmd/imageproxy/
     - go build
     - tar -cvzf imageproxy.tar.gz imageproxy
-    - curl -H  "X-JFrog-Art-Api:$$ARTIFACTORY_API"  -X PUT "http://artifactory.gannettdigital.com/artifactory/go-repository/imageproxy/imageproxy-$$BUILD_NUMBER.tar.gz;version=$$BUILD_NUMBER;applicationName=imageproxy" -T imageproxy.tar.gz
+    - curl -H  "X-JFrog-Art-Api:AKCp2UNCqtqHB633DN1skDtVoJN1CutUbQMp6xBL8hnBLyqHKwy5QJTmnN89c6SairR2731tz"  -X PUT "http://artifactory.gannettdigital.com/artifactory/go-repository/imageproxy/imageproxy-$$BUILD_NUMBER.tar.gz;version=$$BUILD_NUMBER;applicationName=imageproxy" -T imageproxy.tar.gz
