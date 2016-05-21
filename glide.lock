@@ -1,0 +1,38 @@
+hash: 0d9f28fafc9a5365bbbf9292b107ab0240c977113e106561fd68d6dee41a579b
+updated: 2016-05-20T20:48:44.817109118-04:00
+imports:
+- name: github.com/disintegration/imaging
+  version: a71584a63cd265c9c6263d27e099eb21b70e2bd9
+- name: github.com/golang/glog
+  version: a71584a63cd265c9c6263d27e099eb21b70e2bd9
+- name: github.com/gregjones/httpcache
+  version: a71584a63cd265c9c6263d27e099eb21b70e2bd9
+  subpackages:
+  - diskcache
+- name: github.com/kr/http
+  version: a71584a63cd265c9c6263d27e099eb21b70e2bd9
+  subpackages:
+  - transport
+- name: github.com/petar/GoLLRB
+  version: a71584a63cd265c9c6263d27e099eb21b70e2bd9
+  subpackages:
+  - llrb
+- name: github.com/peterbourgon/diskv
+  version: a71584a63cd265c9c6263d27e099eb21b70e2bd9
+- name: github.com/sqs/s3
+  version: a71584a63cd265c9c6263d27e099eb21b70e2bd9
+  subpackages:
+  - s3util
+- name: golang.org/x/image
+  version: a71584a63cd265c9c6263d27e099eb21b70e2bd9
+  subpackages:
+  - bmp
+  - tiff
+  - tiff/lzw
+- name: sourcegraph.com/sourcegraph/s3cache
+  version: a71584a63cd265c9c6263d27e099eb21b70e2bd9
+- name: willnorris.com/go/gifresize
+  version: a71584a63cd265c9c6263d27e099eb21b70e2bd9
+- name: willnorris.com/go/imageproxy
+  version: a71584a63cd265c9c6263d27e099eb21b70e2bd9
+devImports: []
