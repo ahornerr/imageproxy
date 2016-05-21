@@ -6,6 +6,7 @@ build:
     - mv linux-amd64/glide glide
     - chmod +x glide
     - ./glide install
+    - cd cmd/imageproxy/
     - go build
     - tar -cvzf imageproxy.tar.gz imageproxy
     - curl -H  "X-JFrog-Art-Api:$$ARTIFACTORY_API"  -X PUT "http://artifactory.gannettdigital.com/artifactory/go-repository/imageproxy/imageproxy-$$BUILD_NUMBER.tar.gz;version=$$BUILD_NUMBER;applicationName=imageproxy" -T imageproxy.tar.gz
