@@ -89,6 +89,7 @@ func main() {
 		if err != nil {
 			log.Fatalf("error parsing baseURL: %v", err)
 		}
+		p.DefaultBaseURL, _ = url.Parse("-ip-")
 	}
 
 	p.ScaleUp = *scaleUp
