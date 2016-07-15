@@ -14,7 +14,7 @@
 
 // Package imageproxy provides an image proxy server.  For typical use of
 // creating and using a Proxy, see cmd/imageproxy/main.go.
-package imageproxy // import "willnorris.com/go/imageproxy"
+package imageproxy 
 
 import (
 	"bufio"
@@ -101,7 +101,6 @@ func (p *Proxy) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprint(w, "OK")
 		return
 	}
-
 	req, err := NewRequest(r, p.DefaultBaseURL)
 	if err != nil {
 		msg := fmt.Sprintf("invalid request URL: %v", err)
@@ -184,6 +183,9 @@ func validHost(hosts []string, u *url.URL) bool {
 			return true
 		}
 		if strings.HasPrefix(host, "*.") && strings.HasSuffix(u.Host, host[2:]) {
+			return true
+		}
+		if strings.HasPrefix(host, "-ip-") && strings.HasSuffix(u.Host, host[2:]) {
 			return true
 		}
 	}
@@ -297,6 +299,6 @@ func (t *TransformingTransport) RoundTrip(req *http.Request) (*http.Response, er
 	resp.Header.WriteSubset(buf, map[string]bool{"Content-Length": true})
 	fmt.Fprintf(buf, "Content-Length: %d\n\n", len(img))
 	buf.Write(img)
-
+fmt.Println("yes")
 	return http.ReadResponse(bufio.NewReader(buf), req)
 }

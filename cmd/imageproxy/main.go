@@ -28,7 +28,7 @@ import (
 	"github.com/gregjones/httpcache/diskcache"
 	"github.com/peterbourgon/diskv"
 	"sourcegraph.com/sourcegraph/s3cache"
-	"willnorris.com/go/imageproxy"
+	"github.com/GannettDigital/imageproxy"
 )
 
 // goxc values
@@ -53,7 +53,6 @@ var version = flag.Bool("version", false, "print version information")
 
 func main() {
 	flag.Parse()
-
 	if *version {
 		fmt.Printf("%v\nBuild: %v\n", VERSION, BUILD_DATE)
 		return
@@ -89,7 +88,6 @@ func main() {
 		if err != nil {
 			log.Fatalf("error parsing baseURL: %v", err)
 		}
-		p.DefaultBaseURL, _ = url.Parse("-ip-")
 	}
 
 	p.ScaleUp = *scaleUp

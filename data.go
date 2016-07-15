@@ -242,18 +242,18 @@ func NewRequest(r *http.Request, baseURL *url.URL) (*Request, error) {
 	req.URL, err = url.Parse(path)
 	if err != nil || !req.URL.IsAbs() {
 		// first segment should be options
-		parts := strings.SplitN(path, "/", 2)
-		if len(parts) != 2 {
+		parts := strings.SplitN(path, "/", 3)
+		if len(parts) != 3 {
 			return nil, URLError{"too few path segments", r.URL}
 		}
 
 		var err error
-		req.URL, err = url.Parse(parts[1])
+		req.URL, err = url.Parse(parts[2])
 		if err != nil {
 			return nil, URLError{fmt.Sprintf("unable to parse remote URL: %v", err), r.URL}
 		}
 
-		req.Options = ParseOptions(parts[0])
+		req.Options = ParseOptions(parts[1])
 	}
 
 	if baseURL != nil {
@@ -261,7 +261,7 @@ func NewRequest(r *http.Request, baseURL *url.URL) (*Request, error) {
 	}
 
 	if !req.URL.IsAbs() {
-		return nil, URLError{"must provide absolute remote URL", r.URL}
+		return nil, URLError{"must provide absolute remote !!URL", r.URL}
 	}
 
 	if req.URL.Scheme != "http" && req.URL.Scheme != "https" {
